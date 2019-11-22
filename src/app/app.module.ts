@@ -32,7 +32,7 @@ import { ServiceModule } from './services/service.module';
     APP_ROUTES,
     PagesModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

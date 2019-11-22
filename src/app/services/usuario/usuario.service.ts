@@ -4,6 +4,7 @@ import { URL_SERVICIOS } from '../../config/config';
 import { Usuario } from '../../models/usuario.model';
 import 'rxjs/add/operator/map'
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
  
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,9 @@ export class UsuarioService {
   usuario: Usuario;
   token: string;
 
-  constructor( public http: HttpClient ) { 
-    this.cargarStorage();
+  constructor( public http: HttpClient,
+               public router: Router ) { 
+                this.cargarStorage();
   }
 
   estalogueado() {
@@ -33,7 +35,7 @@ export class UsuarioService {
   }
 
   guardarStorage ( id: string, token :string, usuario: Usuario) {
-    localStorage.setItem('id', id);
+    localStorage.setItem('id+1', id);
     localStorage.setItem('token', token);
     localStorage.setItem('usuario', JSON.stringify( usuario ) );
 
@@ -55,6 +57,15 @@ export class UsuarioService {
               .map( (resp: any) => this.guardarStorage(resp.id, resp.token, resp.usuario)
               );
               
+  }
+
+  logout (){
+    this.usuario = null;
+    this.token = '';
+
+    localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
+    this.router.navigate(['/login']);
   }
 
   

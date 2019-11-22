@@ -1,71 +1,51 @@
 <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <aside class="left-sidebar">
-                <!-- Sidebar scroll-->
-                <div class="scroll-sidebar">
-                    <!-- Sidebar navigation-->
-                    <nav class="sidebar-nav">
-                        <ul id="sidebarnav">
-                            <li class="user-pro"> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user-img" class="img-circle"><span class="hide-menu">Persona</span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="javascript:void(0)"><i class="ti-user"></i> Mi perfil</a></li>
-                                    <li><a href="javascript:void(0)"><i class="ti-email"></i> MensaJes</a></li>
-                                    <li><a href="javascript:void(0)"><i class="ti-settings"></i> Configurar cuenta</a></li>
-                                    <li><a href="javascript:void(0)"><i class="fa fa-power-off"></i> Cerrar sesion</a></li>
-                                </ul>
-                            </li>                           
-                            <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Mi oficina </span></a></li>
-                            <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-files"></i><span class="hide-menu">Documentos eléctronicos</span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="app-email.html">Facturas</a></li>
-                                    <li><a href="app-email-detail.html">Notas de débito</a></li>
-                                    <li><a href="app-compose.html">Notas de crédito</a></li>
-                                    <li><a href="app-compose.html">Guias</a></li>
-                                    <li><a href="app-compose.html">Retenciones</a></li>
-                                </ul>
-                            </li>
-                            
-                            <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-notepad"></i><span class="hide-menu">Ventas</span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="app-email.html">Cotizaciones</a></li>
-                                    <li><a href="app-email-detail.html">Clientes</a></li>
-                                    <li><a href="app-compose.html">Cobros</a></li>
-                                </ul>
-                            </li>                            
-                            <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-shopping-cart"></i><span class="hide-menu">Compras</span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="app-email.html">Proveedores</a></li>
-                                    <li><a href="app-email-detail.html">Pagos</a></li>
-                                </ul>
-                            </li>                           
-                            <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-package"></i><span class="hide-menu">Inventarios</span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="app-email.html">Productos</a></li>
-                                </ul>
-                            </li>
-                            <!--
-                            <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-email"></i><span class="hide-menu">Contabilidad</span></a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="app-email.html">Ats</a></li>
-                                </ul>
-                            </li>
-                            -->
-                            <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="ti-calendar"></i><span class="hide-menu">Mi agenda </span></a></li>
-                           
-                            
-                            
-                            
-                            <li class="nav-small-cap">--- SUPPORT</li>
-                            <li> <a class="waves-effect waves-dark" href="../documentation/documentation.html" aria-expanded="false"><i class="far fa-circle text-danger"></i><span class="hide-menu">Documentación</span></a></li>
-                            <li> <a class="waves-effect waves-dark" href="pages-login.html" aria-expanded="false"><i class="far fa-circle text-success"></i><span class="hide-menu">Cerrar sesión</span></a></li>
-                           
-                        </ul>
-                    </nav>
-                    <!-- End Sidebar navigation -->
-                </div>
-                <!-- End Sidebar scroll-->
-            </aside>
-            <!-- ============================================================== -->
-            <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-            <!-- ============================================================== -->
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<aside class="left-sidebar">
+  <!-- Sidebar scroll-->
+  <div class="scroll-sidebar">
+    <!-- Sidebar navigation-->
+    <nav class="sidebar-nav">
+      <ul id="sidebarnav">
+        <li class="user-pro"> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"
+            aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user-img" class="img-circle"><span
+              class="hide-menu">Persona</span></a>
+          <ul aria-expanded="false" class="collapse">
+            <li><a href="javascript:void(0)"><i class="ti-user"></i> Mi perfil</a></li>
+            <li><a href="javascript:void(0)"><i class="ti-email"></i> MensaJes</a></li>
+            <li><a href="javascript:void(0)"><i class="ti-settings"></i> Configurar cuenta</a></li>
+            <li><a (click)="_usuarioService.logout()"><i class="fa fa-power-off"></i> Cerrar sesion</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="waves-effect waves-dark" aria-expanded="false">
+            <i class="icon-speedometer"></i>
+            <span class="hide-menu">Mi Oificina</span>
+          </a>
+        </li>
+        <li *ngFor="let menu of _sidebarService.menu">
+          <a class=" has-arrow waves-effect waves-dark" aria-expanded="false">
+            <i [class]="menu.icono"></i>
+            <span class="hide-menu">{{menu.titulo}} </span>
+          </a>
+          <ul aria-expanded="false" class="collapse">
+            <li *ngFor="let submenu of menu.submenu">
+              <a [routerLink]="[submenu.url]" routerLinkActive="router-link-active">{{submenu.titulo}}</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="waves-effect waves-dark" aria-expanded="false">
+            <i class="ti-calendar"></i>
+            <span class="hide-menu">Mi Agenda</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- End Sidebar navigation -->
+  </div>
+  <!-- End Sidebar scroll-->
+</aside>
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->

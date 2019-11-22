@@ -1,0 +1,86 @@
+<div class="card">
+  <div class="card-body">
+        <button (click)="nuevoProducto()" type="button" class="btn btn-info btn-rounded m-t-10 float-right"  ><i class="fas fa-plus"></i> Nuevo Producto</button>
+    <h4 class="card-title">Productos</h4>
+    <br>
+    <br>
+    <div id="basicgrid" class="jsgrid" style="position: relative; height: 500px; width: 100%;">
+      <div class="jsgrid-grid-header jsgrid-header-scrollbar">
+        <table class="jsgrid-table table table-striped table-hover">
+          <tr class="jsgrid-header-row">
+            <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 50px;">Id</th>
+            <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 80px;">Codigo</th>
+            <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 90px;">Nombre</th>
+            <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 70px;">Precio 1</th>
+            <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 70px;">Precio 2</th>
+            <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 70px;">Precio 3</th>
+            <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 50px;">Iva</th>
+            <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 50px;">Ice</th>
+            <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 50px;">%Ice</th>
+            <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 80px;">Stock</th>
+            <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 80px;">#Stock</th>
+            <th class="jsgrid-header-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;">
+              <button class="jsgrid-button jsgrid-mode-button jsgrid-search-mode-button jsgrid-mode-on-button"
+                type="button" title=""></button>
+            </th>
+          </tr>
+          <tr class="jsgrid-filter-row" style="display: none;">
+            <td class="jsgrid-cell" style="width: 50px;">
+              <input type="text" class="form-control input-sm">
+            </td>
+            <td class="jsgrid-cell" style="width: 50px;">
+              <input type="text" class="form-control input-sm">
+            </td>
+            <td class="jsgrid-cell">
+              <input type="text" class="form-control input-sm">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="jsgrid-grid-body" style="height: 298px;">
+        <table class="jsgrid-table table table-striped table-hover">
+          <tbody>
+            <tr class="jsgrid-row">
+              <td class="jsgrid-cell" style="width: 150px;">Otto Clay</td>
+              <td class="jsgrid-cell jsgrid-align-right" style="width: 70px;">61</td>
+              <td class="jsgrid-cell" style="width: 200px;">Ap #897-1459 Quam Avenue</td>
+              <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">China</td>
+              <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td>
+              <td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><button
+                  class="jsgrid-button jsgrid-edit-button" type="button" title="Edit"></button><button
+                  class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></button></td>
+            </tr>
+            <tr class="jsgrid-alt-row">
+              <td class="jsgrid-cell" style="width: 150px;">Connor Johnston</td>
+              <td class="jsgrid-cell jsgrid-align-right" style="width: 70px;">73</td>
+              <td class="jsgrid-cell" style="width: 200px;">Ap #370-4647 Dis Av.</td>
+              <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">Russia</td>
+              <td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td>
+              <td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><button
+                  class="jsgrid-button jsgrid-edit-button" type="button" title="Edit"></button><button
+                  class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="jsgrid-pager-container" style="">
+        <div class="jsgrid-pager">Pages: <span class="jsgrid-pager-nav-button jsgrid-pager-nav-inactive-button"><a
+              href="javascript:void(0);">First</a></span> <span
+            class="jsgrid-pager-nav-button jsgrid-pager-nav-inactive-button"><a
+              href="javascript:void(0);">Prev</a></span> <span
+            class="jsgrid-pager-page jsgrid-pager-current-page">1</span><span class="jsgrid-pager-page"><a
+              href="javascript:void(0);">2</a></span><span class="jsgrid-pager-page"><a
+              href="javascript:void(0);">3</a></span><span class="jsgrid-pager-page"><a
+              href="javascript:void(0);">4</a></span><span class="jsgrid-pager-page"><a
+              href="javascript:void(0);">5</a></span><span class="jsgrid-pager-nav-button"><a
+              href="javascript:void(0);">...</a></span> <span class="jsgrid-pager-nav-button"><a
+              href="javascript:void(0);">Next</a></span> <span class="jsgrid-pager-nav-button"><a
+              href="javascript:void(0);">Last</a></span> &nbsp;&nbsp; 1 of 7 </div>
+      </div>
+      <div class="jsgrid-load-shader"
+        style="display: none; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; z-index: 1000;"></div>
+      <div class="jsgrid-load-panel" style="display: none; position: absolute; top: 50%; left: 50%; z-index: 1000;">
+        Please, wait...</div>
+    </div>
+  </div>
+</div>
